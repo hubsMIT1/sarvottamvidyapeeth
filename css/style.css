@@ -1,7 +1,3 @@
-
-
-
-
 :root {
     --primary: #00B98E;
     --secondary: #FF6922;
@@ -222,7 +218,7 @@
 @media (max-width: 768px) {
     .header-carousel .owl-nav {
         flex-direction: row;
-        top: 180px;
+        top: 170px;
         left: 73px; /* Adjust the left position to 0 */
         width: 50%; /* Make the buttons take the full width */
         justify-content: space-between; /* Align buttons to start and end */
