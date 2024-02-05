@@ -49,7 +49,7 @@
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 px-4">
                 <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
                     <div class="icon p-1 me-2">
-                        <img class="img-fluid" src="img/SV.png" alt="DT" style="width: 80px; height: 80px;">
+                        <img class="img-fluid" src="img/SV.PNG" alt="DT" style="width: 80px; height: 80px;">
                     </div>
                     <h2 class="m-0 text-primary text-center">Sarvottam Vidyapeeth</h2>
                 </a>
@@ -81,7 +81,48 @@
                 <div class="col-md-6 p-5 mt-lg-5">
                     <h1 class="display-3 animated fadeIn mb-4">Easy to <span class="text-primary">Visualize </span>Easy to <span class="text-primary">Learn.</span> </h1>
                     <p class="animated fadeIn mb-4 pb-2">Unlock your full potential with Sarvottam Vidyapeeth - the leading education-based start-up for aspiring doctors & Engineers. Our innovative platform provides personalized learning and mentorship to help you excel in your dream career. Join our community of dedicated students and experienced faculties to reach your professional goals and achieve success.</p>
-                    <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Enroll Now</a>
+                    <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn"><div id="contactpopup">Enroll Now</div></a>
+                    <div id="contactForm">
+
+                        <h1>Keep in touch!</h1>
+                        <small>We'll get back to you as quickly as possible</small>
+                        
+                        <form action="#">
+                          <input placeholder="Name" type="text" required />
+                          <input placeholder="Email" type="email" required />
+                          <input placeholder="Phone No." type="text" required />
+                          
+                          <input class="formBtn" type="submit" />
+                         <div id="thankYouPopup">
+                            <h1>Thank You!</h1>
+                            <p>We'll get back to you shortly.</p>
+                            
+                        </div>
+
+                        
+                          <input class="formBtn" type="reset" />
+                        </form>
+                      </div>
+                        
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                const enrollButton = document.getElementById("contactpopup");
+                                const popup = document.getElementById("contactForm");
+
+                                enrollButton.addEventListener("click", function (event) {
+                                    event.preventDefault(); // Prevent the default behavior of the anchor tag
+
+                                    // Show the popup
+                                    popup.style.display = "block";
+                                });
+
+                                // Handle form submission
+                                const form = document.querySelector("#contactForm form");
+                                form.addEventListener("submit", function (event) {
+                                    event.preventDefault(); 
+                                });
+                            });
+                        </script>     
                 </div>
                 <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
@@ -195,36 +236,86 @@
 
 
         <!-- Call to Action Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded p-3">
-                    <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
-                        <div class="row g-5 align-items-center">
-                            <div class="col-lg-6 wow fadeIn" id="animation container" data-wow-delay="0.1s"></div>
-							    <script>
-								    var animation = bodymovin.loadAnimation({
-									container: document.getElementById('animation container'),
-									path: 'img/Animation1.json',
-									render: 'svg',
-									loop: true,
-									autoplay: true,
-									name: 'meeting'
-									});
-								</script>
-                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                                <div class="mb-4">
-                                    <h1 class="mb-3">Schedule a Session</h1>
-                                    <p>Ready to embark on your journey to academic excellence with Sarvottam Vidyapeeth? Schedule a personalized appointment with our expert counselors and educators. Whether you're aiming for [JEE/NEET] success or seeking guidance on [Engineering/Medical] career paths, we are here to help you chart your course.</p>
-                                </div>
-                                <a href="" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
-                                <a href="" class="btn btn-dark py-3 px-4"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
-                            </div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="bg-light rounded p-3">
+            <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" id="animation container" data-wow-delay="0.1s"></div>
+				    <script>
+					    var animation = bodymovin.loadAnimation({
+							container: document.getElementById('animation container'),
+							path: 'img/Animation1.json',
+							render: 'svg',
+							loop: true,
+							autoplay: true,
+							name: 'meeting'
+						});
+					</script>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="mb-4">
+                            <h1 class="mb-3">Schedule a Session</h1>
+                            <p>Ready to embark on your journey to academic excellence with Sarvottam Vidyapeeth? Schedule a personalized appointment with our expert counselors and educators. Whether you're aiming for [JEE/NEET] success or seeking guidance on [Engineering/Medical] career paths, we are here to help you chart your course.</p>
                         </div>
+                        <a href="" class="btn btn-primary py-3 px-4 me-2" id="callButton"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
+                        <a href="#" id="appointmentPopup" class="btn btn-dark py-3 px-4"><i class="fa fa-calendar-alt me-2"></i>Get Appointment</a>
+
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Call to Action end -->
+    </div>
+</div>
+<!-- Call to Action end -->
+
+<!-- Appointment Form Popup -->
+<div id="appointmentForm">
+    <h1>Schedule an Appointment</h1>
+    <small>We'll get back to you to confirm the details</small>
+    
+    <form action="#">
+        <input placeholder="Your Name" type="text" required />
+        <input placeholder="Your Email" type="email" required />
+        <input placeholder="Your Phone No." type="text" required />
+        
+        <input class="formBtn" type="submit" />
+        <div id="thankYouAppointmentPopup">
+            <h1>Thank You!</h1>
+            <p>We'll get back to you to confirm the details shortly.</p>
+        </div>
+        
+        <input class="formBtn" type="reset" />
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const appointmentButton = document.getElementById("appointmentPopup");
+    const appointmentForm = document.getElementById("appointmentForm");
+    const thankYouAppointmentPopup = document.getElementById("thankYouAppointmentPopup");
+
+    appointmentButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default behavior of the anchor tag
+
+        // Hide the thank you popup if it's currently displayed
+        thankYouAppointmentPopup.style.display = "none";
+
+        // Show the appointment form
+        appointmentForm.style.display = "block";
+    });
+
+    // Handle form submission
+    const appointmentFormElement = document.querySelector("#appointmentForm form");
+    appointmentFormElement.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+       
+    });
+});
+
+    
+</script>
+
 
         <!-- Team Start -->
         <div class="container-xxl py-5">
