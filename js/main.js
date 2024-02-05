@@ -105,3 +105,66 @@ search_btn.onclick = () => {
     }
 };
 
+
+
+
+
+$(function() {
+    // Existing code for showing and hiding contact form
+
+    // Submit form and show Thank You popup
+    $('#contactForm').submit(function(e) {
+        e.preventDefault(); // Prevent the form from submitting (you can use AJAX if needed)
+
+        // Your form submission logic here
+
+        // Hide contact form
+        $('#contactForm').removeClass('show');
+
+        // Show Thank You popup
+        $('#thankYouPopup').fadeIn();
+    });
+
+    // Hide Thank You popup on click outside
+    $(document).mouseup(function (e) {
+        var container = $("#thankYouPopup");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.fadeOut();
+        }
+    });
+
+    // Close Thank You popup on button click (Optional)
+    $('#closeThankYouPopup').click(function() {
+        $('#thankYouPopup').fadeOut();
+    });
+});
+
+
+$(function() {
+
+    // Submit form and show Thank You popup
+    $('#appointmentForm').submit(function(e) {
+        e.preventDefault(); // Prevent the form from submitting (you can use AJAX if needed)
+
+        // Your form submission logic here
+
+        // Hide contact form
+        $('#appointmentForm').removeClass('show');
+
+        // Show Thank You popup
+        $('#thankYouAppointmentPopup').fadeIn();
+    });
+
+    // Hide Thank You popup on click outside
+    $(document).mouseup(function (e) {
+        var container = $("#thankYouAppointmentPopup");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.fadeOut();
+        }
+    });
+
+    // Close Thank You popup on button click (Optional)
+    $('#closethankYouAppointmentPopup').click(function() {
+        $('#thankYouAppointmentPopup').fadeOut();
+    });
+});
