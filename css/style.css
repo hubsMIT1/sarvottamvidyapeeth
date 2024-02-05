@@ -221,9 +221,19 @@
 
 @media (max-width: 768px) {
     .header-carousel .owl-nav {
-        left: 25px;
+        flex-direction: row;
+        top: 240px;
+        left: 73px; /* Adjust the left position to 0 */
+        width: 50%; /* Make the buttons take the full width */
+        justify-content: space-between; /* Align buttons to start and end */
+    }
+
+    .header-carousel .owl-nav .owl-prev,
+    .header-carousel .owl-nav .owl-next {
+        width: 25%; /* Adjust the width of each button */
     }
 }
+
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: #DDDDDD;
@@ -481,13 +491,20 @@
     font-weight: 400;
     color: black;
 
-    @media (max-width: 768px) {
-        width: 100%; /* Make the card take up the full width */
-        height: auto; /* Allow the height to adjust based on content */
-        padding: 20px;
-    }
+    
+    
   }
-  
+ 
+  @media (max-width: 768px) {
+    .card{
+        width: 90vw; /* Set width to 90% of viewport width */
+        height: 90vw; /* Set height to 90% of viewport width */
+        padding: 10px;
+    }
+}
+
+
+
   .card:hover {
     border: 1px solid black;
     transform: scale(1.05);
@@ -605,8 +622,25 @@
     margin-bottom: 0;
     transition: color 0.3s ease-in-out;
   }
-
-
+  @media (max-width: 768px) {
+    .card__content {
+        width: 100%; /* Adjust width to take the full width of the container */
+        height: auto; /* Allow height to adjust based on content */
+    }
+  }   
+  
+  @media (max-width: 768px) {
+    .card-container {
+        width: 100%; /* Adjust width to take the full width of the container */
+        height: auto; /* Allow height to adjust based on content */
+    }
+  } 
+  @media (max-width: 768px) {
+    .card1 {
+        width: 100%; /* Adjust width to take the full width of the container */
+        height: 40vh; /* Allow height to adjust based on content */
+    }
+  } 
 
 /* Logo Slider */
 
@@ -682,3 +716,105 @@
 		transform: translateX(calc(-250px * 7));
 	}
 }
+
+/* PopUp */
+
+
+
+#contactpopup { 
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+
+   
+
+  
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  
+}
+
+
+
+#contactForm { 
+  display: none;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+  border: 1px solid #ccc; 
+  border-radius: 15px;
+  padding: 2em;
+  width: 400px;
+  text-align: center;
+  background: #fff;
+  position: fixed;
+  top:60%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%)
+  
+}
+
+input, textarea { 
+  margin: .8em auto;
+  font-family: inherit; 
+  text-transform: inherit; 
+  font-size: inherit;
+  border-radius: 10px;
+  display: block; 
+  width: 280px; 
+  padding: .4em;
+}
+textarea { height: 80px; resize: none; }
+
+.formBtn { 
+  width: 150px;
+  display: inline-block;
+  
+  background: #00B98E;
+  color: #fff;
+  font-weight: 100;
+  font-size: 1.2em;
+  border: 1px;
+  border-radius: 15px;
+  height: 40px;
+}
+
+#contactForm.show {
+    display: block !important;
+    opacity: 1 !important;
+}
+#contactpopup:hover {
+    background-color: #00B98E; /* Change to your preferred color */
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#appointmentForm {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#thankYouAppointmentPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
