@@ -810,3 +810,12 @@ textarea { height: 80px; resize: none; }
     z-index: 1000;
 }
 
+.cancelButton {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color:red;
+    /* padding-bottom: 10px; */
+}

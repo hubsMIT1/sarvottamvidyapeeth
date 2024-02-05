@@ -81,7 +81,7 @@
                 <div class="col-md-6 p-5 mt-lg-5">
                     <h1 class="display-3 animated fadeIn mb-4">Easy to <span class="text-primary">Visualize </span>Easy to <span class="text-primary">Learn.</span> </h1>
                     <p class="animated fadeIn mb-4 pb-2">Unlock your full potential with Sarvottam Vidyapeeth - the leading education-based start-up for aspiring doctors & Engineers. Our innovative platform provides personalized learning and mentorship to help you excel in your dream career. Join our community of dedicated students and experienced faculties to reach your professional goals and achieve success.</p>
-                    <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn"><div id="contactpopup">Enroll Now</div></a>
+                    <a href="/contact.html#contact" class="btn btn-primary py-3 px-5 me-3 animated fadeIn"><div id="contactpopup">Enroll Now</div></a>
                     <div id="contactForm">
 
                         <h1>Keep in touch!</h1>
@@ -269,20 +269,24 @@
 <!-- Call to Action end -->
 
 <!-- Appointment Form Popup -->
+<!-- Appointment Form Popup -->
+<div id="thankYouAppointmentPopup">
+    <h1>Thank You!</h1>
+    <p>We'll get back to you to confirm the details shortly.</p>
+</div>
 <div id="appointmentForm">
+    <div id="cancelButton" class="cancelButton">✖</div>
     <h1>Schedule an Appointment</h1>
     <small>We'll get back to you to confirm the details</small>
     
-    <form action="#">
+    <form id="appointmentFormElement" action="#">
         <input placeholder="Your Name" type="text" required />
         <input placeholder="Your Email" type="email" required />
         <input placeholder="Your Phone No." type="text" required />
         
         <input class="formBtn" type="submit" />
-        <div id="thankYouAppointmentPopup">
-            <h1>Thank You!</h1>
-            <p>We'll get back to you to confirm the details shortly.</p>
-        </div>
+        
+        
         
         <input class="formBtn" type="reset" />
     </form>
@@ -290,31 +294,41 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    const appointmentButton = document.getElementById("appointmentPopup");
-    const appointmentForm = document.getElementById("appointmentForm");
-    const thankYouAppointmentPopup = document.getElementById("thankYouAppointmentPopup");
+        const cancelButton = document.getElementById("cancelButton");
 
-    appointmentButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent the default behavior of the anchor tag
+        const appointmentButton = document.getElementById("appointmentPopup");
+        const appointmentForm = document.getElementById("appointmentForm");
+        const thankYouAppointmentPopup = document.getElementById("thankYouAppointmentPopup");
+        const appointmentFormElement = document.getElementById("appointmentFormElement");
 
-        // Hide the thank you popup if it's currently displayed
-        thankYouAppointmentPopup.style.display = "none";
+        appointmentButton.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default behavior of the anchor tag
+            // Hide the thank-you popup if it's currently displayed
+            thankYouAppointmentPopup.style.display = "none";
+            // Show the appointment form
+            appointmentForm.style.display = "block";
+        });
+        cancelButton.addEventListener("click", function () {
+            // Hide the appointment form
+            appointmentForm.style.display = "none";
+        });
+        // Handle form submission
+        appointmentFormElement.addEventListener("submit", function (event) {
+            event.preventDefault();
+            // Show the thank-you popup
+            thankYouAppointmentPopup.style.display = "block";
 
-        // Show the appointment form
-        appointmentForm.style.display = "block";
+            // Set a timeout to hide the thank-you popup after 5 seconds
+            appointmentForm.style.display = "none";
+            setTimeout(function () {
+                thankYouAppointmentPopup.style.display = "none";
+            }, 5000);
+        });
     });
-
-    // Handle form submission
-    const appointmentFormElement = document.querySelector("#appointmentForm form");
-    appointmentFormElement.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-       
-    });
-});
-
-    
 </script>
+
+
+
 
 
         <!-- Team Start -->
