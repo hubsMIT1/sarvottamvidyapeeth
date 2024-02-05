@@ -222,7 +222,7 @@
 @media (max-width: 768px) {
     .header-carousel .owl-nav {
         flex-direction: row;
-        top: 240px;
+        top: 180px;
         left: 73px; /* Adjust the left position to 0 */
         width: 50%; /* Make the buttons take the full width */
         justify-content: space-between; /* Align buttons to start and end */
@@ -491,17 +491,13 @@
     font-weight: 400;
     color: black;
 
-    
+    @media (max-width: 768px) {
+        width: 100%; /* Make the card take up the full width */
+        height: auto; /* Allow the height to adjust based on content */
+        padding: 20px;
+    }
     
   }
- 
-  @media (max-width: 768px) {
-    .card{
-        width: 90vw; /* Set width to 90% of viewport width */
-        height: 90vw; /* Set height to 90% of viewport width */
-        padding: 10px;
-    }
-}
 
 
 
@@ -632,7 +628,7 @@
   @media (max-width: 768px) {
     .card-container {
         width: 100%; /* Adjust width to take the full width of the container */
-        height: auto; /* Allow height to adjust based on content */
+        height: 50vh; /* Allow height to adjust based on content */
     }
   } 
   @media (max-width: 768px) {
